@@ -20,7 +20,7 @@ public class MainMenuFrame extends JFrame
 			this.setLocationRelativeTo(null);
 			this.setResizable(false);
 			this.setContentPane(basePanel);
-			this.setSize(1100,800);
+			this.setSize(1100,700);
 			this.setTitle("Main Menu");
 			this.setVisible(true);
 		}

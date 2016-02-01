@@ -11,20 +11,14 @@ public class MainMenuPanel extends JPanel
 		private RecipePanel recipePanel;
 		private OperationPanel moreOptions;
 		private FoodButtonsPanel foodPanel;
-		private JButton firstButton;
 		
 		public MainMenuPanel()
 		{
 			itemPanel = new ItemSelectionPanel();
 			baseLayout = new SpringLayout();
-			
-			recipePanel = new RecipePanel();
-			
+			recipePanel = new RecipePanel();		
 			moreOptions = new OperationPanel();
 			foodPanel = new FoodButtonsPanel();
-			baseLayout.putConstraint(SpringLayout.NORTH, foodPanel, 0, SpringLayout.SOUTH, itemPanel);
-			baseLayout.putConstraint(SpringLayout.WEST, foodPanel, 0, SpringLayout.EAST, recipePanel);
-			firstButton = new JButton("This in the main panel");
 
 			buildPanel();
 			buildPlacements();
@@ -38,13 +32,15 @@ public class MainMenuPanel extends JPanel
 			add(recipePanel);
 			add(moreOptions);
 			add(itemPanel);
-			add(firstButton);
 		}
 		
 		private void buildPlacements()
 		{
-			baseLayout.putConstraint(SpringLayout.EAST, moreOptions, 0, SpringLayout.EAST, this);
 			baseLayout.putConstraint(SpringLayout.WEST, itemPanel, 0, SpringLayout.EAST, recipePanel);
+			baseLayout.putConstraint(SpringLayout.WEST, recipePanel, 0, SpringLayout.WEST, this);
+			baseLayout.putConstraint(SpringLayout.WEST, foodPanel, 0, SpringLayout.EAST, recipePanel);
+			baseLayout.putConstraint(SpringLayout.SOUTH, foodPanel, 0, SpringLayout.SOUTH, this);
+			baseLayout.putConstraint(SpringLayout.WEST, moreOptions, 0, SpringLayout.EAST, itemPanel);
 		}
 		
 		private void buildListeners()

@@ -1,25 +1,25 @@
 package menu.view;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.*;
 
 import javax.swing.*;
 
 public class FoodButtonsPanel extends JPanel
 	{
-		private SpringLayout baseLayout;
+		private GridLayout baseLayout;
 		private JButton firstButton;
 		
 		public FoodButtonsPanel()
 		{
-			baseLayout = new SpringLayout();
+			baseLayout = new GridLayout();
 			firstButton = new JButton("Middle Panel");
+			
 			buildPanel();
 		}
 		
 		private void buildPanel()
 		{
-			setPreferredSize(new Dimension(600,700));
+			setPreferredSize(new Dimension(600,600));
 			setBackground(new Color(156, 246, 210));
 			
 			setLayout(baseLayout);
