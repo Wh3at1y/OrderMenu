@@ -1,21 +1,17 @@
 package menu.view;
 
-import java.awt.Font;
-
 import javax.swing.JFrame;
-import javax.swing.UIManager;
 
 public class MainMenuFrame extends JFrame
 	{
 		private MainMenuPanel basePanel;
 		private DefaultLookAndFeel setLook;
-		private ItemSelectionPanel selectionItems;
 		
 		public MainMenuFrame()
 		{
 			setLook = new DefaultLookAndFeel();
 			basePanel = new MainMenuPanel();
-			selectionItems = new ItemSelectionPanel();
+			
 			buildFrame();
 		}
 		

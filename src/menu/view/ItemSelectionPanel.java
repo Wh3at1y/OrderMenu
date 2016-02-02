@@ -18,26 +18,13 @@ public class ItemSelectionPanel extends JPanel
 		{
 			baseLayout = new SpringLayout();
 			smoothieButton = new JButton("Smoothies");
-			baseLayout.putConstraint(SpringLayout.NORTH, smoothieButton, 10, SpringLayout.NORTH, this);
-			baseLayout.putConstraint(SpringLayout.WEST, smoothieButton, 10, SpringLayout.WEST, this);
-			baseLayout.putConstraint(SpringLayout.SOUTH, smoothieButton, -38, SpringLayout.SOUTH, this);
 			foodButton = new JButton("Food");
-			baseLayout.putConstraint(SpringLayout.WEST, foodButton, 165, SpringLayout.WEST, this);
-			baseLayout.putConstraint(SpringLayout.EAST, foodButton, -286, SpringLayout.EAST, this);
-			baseLayout.putConstraint(SpringLayout.EAST, smoothieButton, -6, SpringLayout.WEST, foodButton);
-			baseLayout.putConstraint(SpringLayout.NORTH, foodButton, 10, SpringLayout.NORTH, this);
-			baseLayout.putConstraint(SpringLayout.SOUTH, foodButton, 0, SpringLayout.SOUTH, smoothieButton);
 			snackButton = new JButton("Snacks");
-			baseLayout.putConstraint(SpringLayout.NORTH, snackButton, 0, SpringLayout.NORTH, smoothieButton);
-			baseLayout.putConstraint(SpringLayout.WEST, snackButton, 6, SpringLayout.EAST, foodButton);
-			baseLayout.putConstraint(SpringLayout.SOUTH, snackButton, 0, SpringLayout.SOUTH, smoothieButton);
-			baseLayout.putConstraint(SpringLayout.EAST, snackButton, -131, SpringLayout.EAST, this);
 			otherButton = new JButton("Other");
-			baseLayout.putConstraint(SpringLayout.NORTH, otherButton, 0, SpringLayout.NORTH, smoothieButton);
-			baseLayout.putConstraint(SpringLayout.WEST, otherButton, 6, SpringLayout.EAST, snackButton);
-			baseLayout.putConstraint(SpringLayout.SOUTH, otherButton, 0, SpringLayout.SOUTH, smoothieButton);
-			baseLayout.putConstraint(SpringLayout.EAST, otherButton, -10, SpringLayout.EAST, this);
+			
 			buildPanel();
+			buildPlacements();
+			buildListeners();
 		}
 		
 		private void buildPanel()
@@ -54,7 +41,22 @@ public class ItemSelectionPanel extends JPanel
 		
 		private void buildPlacements()
 		{
-			
+			baseLayout.putConstraint(SpringLayout.NORTH, smoothieButton, 10, SpringLayout.NORTH, this);
+			baseLayout.putConstraint(SpringLayout.WEST, smoothieButton, 10, SpringLayout.WEST, this);
+			baseLayout.putConstraint(SpringLayout.SOUTH, smoothieButton, -38, SpringLayout.SOUTH, this);
+			baseLayout.putConstraint(SpringLayout.WEST, foodButton, 165, SpringLayout.WEST, this);
+			baseLayout.putConstraint(SpringLayout.EAST, foodButton, -286, SpringLayout.EAST, this);
+			baseLayout.putConstraint(SpringLayout.EAST, smoothieButton, -6, SpringLayout.WEST, foodButton);
+			baseLayout.putConstraint(SpringLayout.NORTH, foodButton, 10, SpringLayout.NORTH, this);
+			baseLayout.putConstraint(SpringLayout.SOUTH, foodButton, 0, SpringLayout.SOUTH, smoothieButton);
+			baseLayout.putConstraint(SpringLayout.NORTH, snackButton, 0, SpringLayout.NORTH, smoothieButton);
+			baseLayout.putConstraint(SpringLayout.WEST, snackButton, 6, SpringLayout.EAST, foodButton);
+			baseLayout.putConstraint(SpringLayout.SOUTH, snackButton, 0, SpringLayout.SOUTH, smoothieButton);
+			baseLayout.putConstraint(SpringLayout.EAST, snackButton, -131, SpringLayout.EAST, this);
+			baseLayout.putConstraint(SpringLayout.NORTH, otherButton, 0, SpringLayout.NORTH, smoothieButton);
+			baseLayout.putConstraint(SpringLayout.WEST, otherButton, 6, SpringLayout.EAST, snackButton);
+			baseLayout.putConstraint(SpringLayout.SOUTH, otherButton, 0, SpringLayout.SOUTH, smoothieButton);
+			baseLayout.putConstraint(SpringLayout.EAST, otherButton, -10, SpringLayout.EAST, this);
 		}
 		
 		private void buildListeners()

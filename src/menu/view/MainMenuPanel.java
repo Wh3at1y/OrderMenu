@@ -22,6 +22,7 @@ public class MainMenuPanel extends JPanel
 
 			buildPanel();
 			buildPlacements();
+			buildListeners();
 		}
 		
 		private void buildPanel()

@@ -2,7 +2,6 @@ package menu.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 
 import javax.swing.*;
 
@@ -30,6 +29,7 @@ public class OperationPanel extends JPanel
 			
 			buildPanel();
 			buildPlacements();
+			buildListeners();
 		}
 		
 		private void buildPanel()

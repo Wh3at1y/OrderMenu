@@ -9,7 +9,7 @@ public class RecipePanel extends JPanel
 	{
 		private SpringLayout baseLayout;
 		
-		private JTextArea showRecipe;
+		private static JList showRecipe;
 		private JButton printButton;
 		private JButton deleteButton;
 		
@@ -17,14 +17,14 @@ public class RecipePanel extends JPanel
 		{
 			baseLayout = new SpringLayout();
 			
-			showRecipe = new JTextArea();
-			showRecipe.setEditable(false);
+			showRecipe = new JList();
 			
 			printButton = new JButton("Print Recipe");
 			deleteButton = new JButton("Delete Item");
 			
 			buildPanel();
 			buildPlacements();
+			buildListeners();
 		}
 		
 		private void buildPanel()
@@ -57,5 +57,10 @@ public class RecipePanel extends JPanel
 		private void buildListeners()
 		{
 			
+		}
+		
+		public static void setRecipeText(String addToRecipe)
+		{
+			showRecipe.add(addToRecipe);
 		}
 	}

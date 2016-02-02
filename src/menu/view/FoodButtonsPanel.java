@@ -4,8 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 
 public class FoodButtonsPanel extends JPanel
 	{
@@ -35,6 +34,8 @@ public class FoodButtonsPanel extends JPanel
 			baseLayout = new SpringLayout();
 			
 			showPrice = new JTextArea();
+			showPrice.setText("\nTotal Amount : ");
+			
 			secretMenuButton = new JButton("Secret Menu");
 			secretMenuButton.setOpaque(true);
 			secretMenuButton.setForeground(Color.red);
@@ -55,6 +56,7 @@ public class FoodButtonsPanel extends JPanel
 			
 			buildPanel();
 			buildPlacements();
+			buildListeners();
 		}
 		
 		private void buildPanel()
@@ -141,6 +143,13 @@ public class FoodButtonsPanel extends JPanel
 		
 		private void buildListeners()
 		{
-			
+			allFruitSmoothieButton.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent click)
+					{
+						//RecipePanel news = new RecipePanel();
+						RecipePanel.setRecipeText(allFruitSmoothieButton.getText());
+					}
+				});
 		}
 	}
