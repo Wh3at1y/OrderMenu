@@ -2,22 +2,36 @@ package menu.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 
 public class RecipePanel extends JPanel
 	{
-		private SpringLayout baseLayout;
+		private MainMenuPanel mainPanel;
 		
-		private static JList showRecipe;
+		private DefaultFont setFont;
+		private SpringLayout baseLayout;
+
+		private ArrayList<String> recipeList;
+		private JTextArea showRecipe;
 		private JButton printButton;
 		private JButton deleteButton;
 		
-		public RecipePanel()
+		public RecipePanel(MainMenuPanel mainPanel)
 		{
-			baseLayout = new SpringLayout();
+			mainPanel = new MainMenuPanel();
 			
-			showRecipe = new JList();
+			setFont = new DefaultFont();
+			setFont.setUIFont(new FontUIResource(new Font("Century Gothic", 0, 20)));
+			
+			baseLayout = new SpringLayout();
+
+			recipeList = new ArrayList<String>();			
+			showRecipe = new JTextArea("Order:");
+			showRecipe.setEditable(false);
 			
 			printButton = new JButton("Print Recipe");
 			deleteButton = new JButton("Delete Item");
@@ -59,8 +73,13 @@ public class RecipePanel extends JPanel
 			
 		}
 		
-		public static void setRecipeText(String addToRecipe)
+		public void setRecipeText(String addToRecipe)
 		{
-			showRecipe.add(addToRecipe);
+			recipeList.add(addToRecipe);
+			showRecipe.setText("Order:\n");
+			for(String printWords : recipeList)
+				{
+					showRecipe.append(printWords + "\n");
+				}
 		}
 	}

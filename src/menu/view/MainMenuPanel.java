@@ -4,8 +4,11 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import menu.model.Smoothies;
+
 public class MainMenuPanel extends JPanel
 	{
+		private Smoothies smoothieInfo;
 		private SpringLayout baseLayout;
 		private ItemSelectionPanel itemPanel;
 		private RecipePanel recipePanel;
@@ -14,17 +17,18 @@ public class MainMenuPanel extends JPanel
 		
 		public MainMenuPanel()
 		{
+			smoothieInfo = new Smoothies(this);
 			itemPanel = new ItemSelectionPanel();
 			baseLayout = new SpringLayout();
-			recipePanel = new RecipePanel();		
+			recipePanel = new RecipePanel(this);		
 			moreOptions = new OperationPanel();
-			foodPanel = new FoodButtonsPanel();
+			foodPanel = new FoodButtonsPanel(this);
 
 			buildPanel();
 			buildPlacements();
 			buildListeners();
 		}
-		
+
 		private void buildPanel()
 		{
 			setBackground(Color.black);
@@ -48,4 +52,24 @@ public class MainMenuPanel extends JPanel
 		{
 			
 		}
+
+		public ItemSelectionPanel getItemPanel()
+			{
+				return itemPanel;
+			}
+
+		public RecipePanel getRecipePanel()
+			{
+				return recipePanel;
+			}
+
+		public OperationPanel getMoreOptions()
+			{
+				return moreOptions;
+			}
+
+		public FoodButtonsPanel getFoodPanel()
+			{
+				return foodPanel;
+			}
 	}

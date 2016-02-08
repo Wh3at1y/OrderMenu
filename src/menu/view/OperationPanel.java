@@ -2,12 +2,17 @@ package menu.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 
 public class OperationPanel extends JPanel
 	{
 		private SpringLayout baseLayout;
+		
+		private DefaultFont setFont;
+		
 		private JButton opButton;
 		private JButton changeSizeButton;
 		private JButton changeIngredientButton;
@@ -19,6 +24,10 @@ public class OperationPanel extends JPanel
 		public OperationPanel()
 		{
 			baseLayout = new SpringLayout();
+			
+			setFont = new DefaultFont();
+			setFont.setUIFont(new FontUIResource(new Font("Monaco", 0, 15)));
+			
 			opButton = new JButton("Operator Options");
 			changeSizeButton = new JButton("Change Size");
 			changeIngredientButton = new JButton("Change Ingredients");
@@ -26,6 +35,8 @@ public class OperationPanel extends JPanel
 			discountButton = new JButton("Discounts");
 			pastBuysButton = new JButton("Past Buys");
 			payButton = new JButton("Pay");
+			payButton.setOpaque(true);
+			payButton.setForeground(Color.BLUE);
 			
 			buildPanel();
 			buildPlacements();

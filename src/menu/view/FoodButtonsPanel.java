@@ -5,11 +5,14 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import java.awt.event.*;
+import menu.model.Smoothies;
 
 public class FoodButtonsPanel extends JPanel
 	{
 		private DefaultFont setFont;
 		private SpringLayout baseLayout;
+		
+		private MainMenuPanel mainPanel;
 		
 		private JTextArea showPrice;
 		private JButton secretMenuButton;
@@ -26,8 +29,10 @@ public class FoodButtonsPanel extends JPanel
 		private JButton berryBlueButton;
 		private JButton pineappleSlickButton;
 		
-		public FoodButtonsPanel()
+		public FoodButtonsPanel(MainMenuPanel mainPanel)
 		{
+			this.mainPanel = mainPanel;
+			
 			setFont = new DefaultFont();
 			setFont.setUIFont(new FontUIResource(new Font("Corbel", 0, 19)));
 			
@@ -147,8 +152,9 @@ public class FoodButtonsPanel extends JPanel
 				{
 					public void actionPerformed(ActionEvent click)
 					{
-						//RecipePanel news = new RecipePanel();
-						RecipePanel.setRecipeText(allFruitSmoothieButton.getText());
+						mainPanel.getRecipePanel().setRecipeText(allFruitSmoothieButton.getText());
+						showPrice.setText(mainPanel.getFoodPanel());
+						
 					}
 				});
 		}
