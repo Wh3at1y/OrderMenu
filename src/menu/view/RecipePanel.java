@@ -10,7 +10,6 @@ import javax.swing.plaf.FontUIResource;
 
 public class RecipePanel extends JPanel
 	{
-		private MainMenuPanel mainPanel;
 		
 		private DefaultFont setFont;
 		private SpringLayout baseLayout;
@@ -22,7 +21,6 @@ public class RecipePanel extends JPanel
 		
 		public RecipePanel(MainMenuPanel mainPanel)
 		{
-			mainPanel = new MainMenuPanel();
 			
 			setFont = new DefaultFont();
 			setFont.setUIFont(new FontUIResource(new Font("Century Gothic", 0, 20)));

@@ -8,7 +8,6 @@ import menu.model.Smoothies;
 
 public class MainMenuPanel extends JPanel
 	{
-		private Smoothies smoothieInfo;
 		private SpringLayout baseLayout;
 		private ItemSelectionPanel itemPanel;
 		private RecipePanel recipePanel;
@@ -17,7 +16,7 @@ public class MainMenuPanel extends JPanel
 		
 		public MainMenuPanel()
 		{
-			smoothieInfo = new Smoothies(this);
+			new Smoothies(this);
 			itemPanel = new ItemSelectionPanel();
 			baseLayout = new SpringLayout();
 			recipePanel = new RecipePanel(this);		
